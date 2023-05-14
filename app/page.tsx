@@ -7,6 +7,7 @@ import SpotifyPlayer from './SpotifyPlayer/SpotifyPlayer'
 const Page = () => {
 
   const [accessToken, setAccessToken] = useState<string>('');
+  const [bg, setBg] = useState<string>('');
 
   const checkTokenExpiration = () => {
     const loginTime = localStorage.getItem('loginTime');
@@ -25,7 +26,7 @@ const Page = () => {
       fetch('/api/refresh', {
         method: 'POST',
         body: JSON.stringify({
-          refreshToken
+          refresh_token: refreshToken
         }),
       })
         .then(response => response.json())
@@ -53,22 +54,26 @@ const Page = () => {
   }, [])
 
   return (
-    <div className='home'>
-      <div className='header'>
-        <h1 className='header_title'>Cantus<span className='gradient-dot'>.</span></h1>
+    <div className='home-container'>
+      <div className='home-image' style={{ backgroundImage: `url(${bg})` }}></div>
+      <div className='home'>
+        <div className='header'>
+          <h1 className='header_title'>Cantus<span className='gradient-dot'>.</span></h1>
 
-      </div>
-      <div className='home-content'>
-        <div className='home-content-left'>
-          <div className='prompt-window'>
-            <ChatComponent access_token={accessToken}></ChatComponent>
-          </div>
         </div>
-        <div className='home-content-right'>
-          <SpotifyPlayer access_token={accessToken}></SpotifyPlayer>
-        </div> 
+        <div className='home-content'>
+          <div className='home-content-left'>
+            <div className='prompt-window'>
+              <ChatComponent access_token={accessToken}></ChatComponent>
+            </div>
+          </div>
+          {window.innerWidth > 800 && <div className='home-content-right'>
+            <SpotifyPlayer access_token={accessToken} setBg={setBg}></SpotifyPlayer>
+          </div> }
+        </div>
       </div>
     </div>
+    
   )
 }
 

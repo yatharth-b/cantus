@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
   });
 
   const js = await ret.json()
-  
+  console.log(js)
   return NextResponse.json({
     accessToken: js.access_token,
   });

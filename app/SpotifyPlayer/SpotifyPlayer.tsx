@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const SpotifyPlayer = ({ access_token } : {access_token : string}) => {
+const SpotifyPlayer = ({ access_token, setBg } : {access_token : string, setBg : any}) => {
   const [currTrack, setCurrTrack] = useState<any>();
 
   useEffect(() => {
@@ -18,6 +18,7 @@ const SpotifyPlayer = ({ access_token } : {access_token : string}) => {
 
         const data = await response.json();
         setCurrTrack(data.item);
+        setBg(data.item.album.images[0].url);
       } catch (error : any) {
         console.error('Failed to fetch playback state:', error.message);
       }

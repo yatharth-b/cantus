@@ -8,6 +8,7 @@ const Page = () => {
 
   const [accessToken, setAccessToken] = useState<string>('');
   const [bg, setBg] = useState<string>('');
+  const [width, setWidth] = useState<number>(1920);
 
   const checkTokenExpiration = () => {
     const loginTime = localStorage.getItem('loginTime');
@@ -50,6 +51,7 @@ const Page = () => {
   };
 
   useEffect(() => {
+    setWidth(window.innerWidth);
     checkTokenExpiration();
   }, [])
 
@@ -67,7 +69,7 @@ const Page = () => {
               <ChatComponent access_token={accessToken}></ChatComponent>
             </div>
           </div>
-          {window.innerWidth > 800 && <div className='home-content-right'>
+          {width > 800 && <div className='home-content-right'>
             <SpotifyPlayer access_token={accessToken} setBg={setBg}></SpotifyPlayer>
           </div> }
         </div>

@@ -1,5 +1,6 @@
 'use client';
 import './login.css';
+import Client from '../Client/Client'
 import Image from 'next/image';
 
 export default function login() {
@@ -45,12 +46,14 @@ export default function login() {
     };
 
     return (
-      <div className='login-button' onClick={() => {
-        handleLogin();
-      }}>
-        <img src='/spotify.png' className='spotify-logo'></img>
-        <p className='login-prompt'>Talk to your music</p>
-      </div>
+      <Client>
+        <div className='login-button' onClick={() => {
+          handleLogin();
+        }}>
+          <img src='/spotify.png' className='spotify-logo'></img>
+          <p className='login-prompt'>Talk to your music</p>
+        </div>
+      </Client>
     );
   };
 

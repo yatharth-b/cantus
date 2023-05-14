@@ -1,7 +1,7 @@
 'use client';
 import './login.css';
-import Client from '../Client/Client'
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 export default function login() {
   
@@ -30,7 +30,7 @@ export default function login() {
   ]; // Add more scopes as needed
 
   const SpotifyButton = () => {
-    
+    const router = useRouter();
     const handleLogin = () => {
       var text = '';
       var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -42,18 +42,18 @@ export default function login() {
       localStorage.setItem('state', text);
 
       const url = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes.join(' '))}&response_type=code&show_dialog=true&state=${text}`;
-      window.location.href = url;
+      router.push(url);
     };
 
     return (
-      <Client>
-        <div className='login-button' onClick={() => {
-          handleLogin();
-        }}>
-          <img src='/spotify.png' className='spotify-logo'></img>
-          <p className='login-prompt'>Talk to your music</p>
-        </div>
-      </Client>
+
+      <div className='login-button' onClick={() => {
+        handleLogin();
+      }}>
+        <img src='/spotify.png' className='spotify-logo'></img>
+        <p className='login-prompt'>Talk to your music</p>
+      </div>
+
     );
   };
 

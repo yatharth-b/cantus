@@ -1,12 +1,12 @@
 'use client';
 import './login.css';
+import Client from '../Client/Client'
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 export default function login() {
   
   const clientId = '49fc19d81cdb43dca2e0b0b2f0ee1a0d';
-  const redirectUri = 'http://localhost:3000/callback'; // Replace with your actual redirect URI
+  const redirectUri = 'https://cantus.vercel.app/callback'; // Replace with your actual redirect URI
   const scopes = [
     'ugc-image-upload',
     'user-read-recently-played',
@@ -30,7 +30,7 @@ export default function login() {
   ]; // Add more scopes as needed
 
   const SpotifyButton = () => {
-    const router = useRouter();
+    
     const handleLogin = () => {
       var text = '';
       var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -42,18 +42,18 @@ export default function login() {
       localStorage.setItem('state', text);
 
       const url = `https://accounts.spotify.com/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&scope=${encodeURIComponent(scopes.join(' '))}&response_type=code&show_dialog=true&state=${text}`;
-      router.push(url);
+      window.location.href = url;
     };
 
     return (
-
-      <div className='login-button' onClick={() => {
-        handleLogin();
-      }}>
-        <img src='/spotify.png' className='spotify-logo'></img>
-        <p className='login-prompt'>Talk to your music</p>
-      </div>
-
+      <Client>
+        <div className='login-button' onClick={() => {
+          handleLogin();
+        }}>
+          <img src='/spotify.png' className='spotify-logo'></img>
+          <p className='login-prompt'>Talk to your music</p>
+        </div>
+      </Client>
     );
   };
 

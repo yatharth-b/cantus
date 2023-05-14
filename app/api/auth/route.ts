@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
 
   const bodyParams = new URLSearchParams();
   bodyParams.append('code', data.code);
-  bodyParams.append('redirect_uri', 'http://localhost:3000/callback');
+  bodyParams.append('redirect_uri', 'https://cantus.vercel.app/callback');
   bodyParams.append('grant_type', 'authorization_code');
   
   const ret = await fetch("https://accounts.spotify.com/api/token", {

@@ -100,7 +100,7 @@ const ChatComponent = ({ access_token } : { access_token : string }) => {
           }}></img>
           
         </div>
-        {!isDisabled && <div className="pig-container">
+        {isDisabled && <div className="pig-container">
           <p className="pig-svg">🐷</p>
         </div>}
         

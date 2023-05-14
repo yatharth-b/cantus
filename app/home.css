@@ -1,0 +1,210 @@
+.home {
+  width: 100vw;
+  height: 100vh;
+  background: #181818;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.gradient-dot {
+  background: -webkit-linear-gradient(#FA00FF, #FFC700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header_title {
+  display: flex;
+  align-items: end;
+  font-weight: 900;
+  font-size: 30px;
+  font-family: 'Inter';
+  color: #F4F4E2;
+}
+
+.header {
+  display: flex;
+}
+
+.home-content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  flex-grow: 1;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.home-content-left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  min-width: 270px;
+}
+
+.home-content-right {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  min-width: 270px;
+}
+
+.player-heading {
+  font-family: 'Inter';
+  font-style: normal;
+  
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  letter-spacing: 0.305em;
+  text-transform: uppercase;
+  color: #F4F4E2;
+  padding-bottom: 30px;
+}
+
+.album-cover {
+  max-width: 30%;
+  height: auto;
+  object-fit: contain;
+}
+
+.spotify-player {
+  display: flex;
+  justify-content: space-between;
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  row-gap: 5px;
+}
+
+.track-name {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 58px;
+  /* identical to box height */
+
+
+  color: #FFFFFF;
+}
+
+.track-artist {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  text-transform: uppercase;
+
+  color: #868686;
+}
+
+.track-album {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  /* identical to box height */
+
+  letter-spacing: 0.305em;
+  text-transform: uppercase;
+
+  color: #868686;
+}
+
+.prompt-window {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #171717;
+  box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,  
+              100%, 0.075),
+              /* shadow ring 👇 */
+              0 0 0 1px hsla(0, 0%, 0%, 0.05),
+              /* multiple soft shadows 👇 */
+              0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+              0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+              0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+}
+
+.chat-component {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+
+.input-field {
+  width: 100%;
+  border-top: 1px solid hsla(0, 0%, 100%, 0.075);
+  display: flex;
+  height: 10%;
+  padding-left: 5px;
+  padding-right: 10px;
+  align-items: center;
+}
+
+.chat-input {
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 20px;
+  margin: 0;
+  font-family: 'Inter';
+  font-weight: 600;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  width: 100%;
+  resize: none;
+  height: 60px;
+}
+
+.chat-messages {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.messages-container {
+  height: 90%;
+}
+
+.send-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.message {
+  padding: 2%;
+}
+
+.user {
+  background: #1D1D1D;
+}
+
+.assistant {
+  color: #F4F4E2;
+  background: #171717;
+}

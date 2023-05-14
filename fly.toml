@@ -1,0 +1,21 @@
+# fly.toml app configuration file generated for cantus on 2023-05-14T15:43:06-04:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "cantus"
+primary_region = "dfw"
+
+[build]
+  [build.args]
+    NEXT_PUBLIC_EXAMPLE = "Value goes here"
+
+[env]
+  PORT = "8080"
+  
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0

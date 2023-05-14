@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function login() {
   
   const clientId = '49fc19d81cdb43dca2e0b0b2f0ee1a0d';
-  const redirectUri = 'https://cantus.vercel.app/callback'; // Replace with your actual redirect URI
+  const redirectUri = 'https://cantus.fly.dev/callback'; // Replace with your actual redirect URI
   const scopes = [
     'ugc-image-upload',
     'user-read-recently-played',
